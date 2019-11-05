@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+</head>
+
+<body>
+ <th:block th:include="/_headAdmin"></th:block>
+
+     <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">
+          <li class="active">
+            <a class="" href="index.html">
+                          <i class="icon_house_alt"></i>
+                          <span>Trang Chủ</span>
+                      </a>
+          </li>
+          <li class="active">
+            <a th:href="@{/ManageProduct}" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Quản lý sản phẩm</span>
+                          
+                      </a>
+          </li>
+          <li class="active">
+            <a th:href="@{/admin/orderList}" class="">
+                             <i class="icon_piechart"></i>
+                          <span>Quản Lý Đơn Hàng</span>
+                         
+                      </a>
+            
+          </li>
+          <li>
+            <a class="active" href="widgets.html">
+                          <i class="icon_genius"></i>
+                          <span>Quản Lý Sự Kiện</span>
+                      </a>
+          </li>
+          <li>
+            <a class="active" href="chart-chartjs.html">
+                          <i class="icon_desktop"></i>
+                          <span>Quản Lý Tài Khoản</span>
+
+                      </a>
+
+          </li>
+
+          
+
+         
+
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
+
+</body>
+
+</html>

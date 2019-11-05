@@ -1,0 +1,141 @@
+<!--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+</head>
+<body>
+	<th:block th:include="/head"></th:block>
+	<th:block th:include="/header"></th:block>
+	<!--banner-->
+	<div class="banner-top">
+		<div class="container">
+			<h1>Checkout</h1>
+			<em></em>
+			<h2>
+				<a href="index.html">Home</a><label>/</label>Checkout
+			</h2>
+		</div>
+	</div>
+	<!--login-->
+	<script>
+		$(document).ready(function(c) {
+			$('.close1').on('click', function(c) {
+				$('.cart-header').fadeOut('slow', function(c) {
+					$('.cart-header').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close2').on('click', function(c) {
+				$('.cart-header1').fadeOut('slow', function(c) {
+					$('.cart-header1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close3').on('click', function(c) {
+				$('.cart-header2').fadeOut('slow', function(c) {
+					$('.cart-header2').remove();
+				});
+			});
+		});
+	</script>
+	<div class="check-out">
+		<div class="container">
+<div class="panel-body">
+                <div class="form">
+                  <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
+          
+         <table>
+            <tr>
+               <td>Tên *</td>
+               <td><input th:field="*{name}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Email *</td>
+               <td><input th:field="*{email}" type="email" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Số điện thoại *</td>
+               <td><input th:field="*{phone}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Địa chỉ *</td>
+               <td><input th:field="*{address}" /></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>&nbsp;</td>
+               <td><input type="submit" value="Submit" /> <input type="reset"
+                  value="Reset" /></td>
+            </tr>
+         </table>
+          
+      </form>
+                </div>
+
+              </div>
+			
+		</div>
+	</div>
+
+	<!--//login-->
+	<!--brand-->
+	<div class="container">
+		<div class="brand">
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic1.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic2.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic3.png" class="img-responsive" alt="">
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!--//brand-->
+	<!--//content-->
+	<!--//footer-->
+	<th:block th:include="/footer"></th:block>
+	<!--//footer-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+	<script src="js/simpleCart.min.js">
+		
+	</script>
+	<!-- slide -->
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

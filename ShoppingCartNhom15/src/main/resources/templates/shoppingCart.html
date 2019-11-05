@@ -1,0 +1,179 @@
+<!--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+</head>
+<body>
+	<th:block th:include="/head"></th:block>
+	<th:block th:include="/header"></th:block>
+	<!--banner-->
+	<div class="banner-top">
+		<div class="container">
+			<h1>Checkout</h1>
+			<em></em>
+			<h2>
+				<a href="index.html">Home</a><label>/</label>Checkout
+			</h2>
+		</div>
+	</div>
+	<!--login-->
+	<script>
+		$(document).ready(function(c) {
+			$('.close1').on('click', function(c) {
+				$('.cart-header').fadeOut('slow', function(c) {
+					$('.cart-header').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close2').on('click', function(c) {
+				$('.cart-header1').fadeOut('slow', function(c) {
+					$('.cart-header1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close3').on('click', function(c) {
+				$('.cart-header2').fadeOut('slow', function(c) {
+					$('.cart-header2').remove();
+				});
+			});
+		});
+	</script>
+	<div class="check-out">
+		<div class="container">
+<th:block
+						th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.empty}">
+						<h2>There is no items in Cart</h2>
+						<a th:href="@{/productList}">Show Product List</a>
+					</th:block>
+					<th:block
+						th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
+						<form method="POST" th:object="${cartForm}"
+							th:action="@{/shoppingCart}">
+			<div class="bs-example4" data-example-id="simple-responsive-table">
+				<div class="table-responsive">
+					
+							<table class="table-heading simpleCart_shelfItem">
+								<tr>
+									<th class="table-grid">Item</th>
+									<th>Quantity</th>
+									<th>Prices</th>
+									<th>Delivery</th>
+									<th>Subtotal</th>
+								</tr>
+
+
+								<div class="product-preview-container" th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
+									<tr>
+										<td class="ring-in"><a href="single.html" class="at-in">
+												<img
+												th:src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}"
+												class="img-responsive" alt="">
+										</a>
+											<div class="sed">
+												<h5>
+													<a th:href="@{|/single?productId=${cartLineInfo.productInfo.code}|}">
+														<p th:utext="${cartLineInfo.productInfo.name}"></p>
+													</a>
+												</h5>
+												<p>(At vero eos et accusamus et iusto odio dignissimos
+													ducimus )</p>
+											</div>
+									 		<div class="clearfix"></div></td>
+										
+										<td>
+		
+											<div class="quantity">
+												<span class="decrease"><svg viewBox="0 0 15 15">
+																	<use xlink:href="#minus-lower"></use></svg></span> <input
+													type="number" class="input-text qty text" step="1" min="0"
+													max="5" th:name="|cartLines[${varStatus.index}].quantity|"
+													th:value="${cartLineInfo.quantity}" title="SL" size="4"
+													pattern="[0-9]*" inputmode="numeric"> <span
+													class="increase"><svg viewBox="0 0 15 15">
+																	<use xlink:href="#plus-increase"></use></svg></span>
+											</div>
+		
+										</td>
+										<td>
+											<p class="price"
+												th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}">
+											</p>
+										</td>
+										<td>FREE SHIPPING</td>
+										<td class="item_price"><p class="subtotal"
+												th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}">
+											</p></td>
+		
+										<td class="add-check"><a class="item_add hvr-skew-backward"
+											th:href="@{|/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}">Delete</a></td>
+									</tr>	
+								</div>
+								
+								
+							</table>
+							
+								
+					
+				</div>
+			</div>
+			<!--  
+			<input class="produced" type="submit"
+									value="Update Quantity" />
+							<div class="produced">
+			-->
+				<a th:href="@{/productList}" class="hvr-skew-backward">Tiếp tục mua hàng</a>
+				<a th:href="@{/shoppingCartCustomer}" class="hvr-skew-backward">Đặt Hàng</a>
+			</div>
+				</form>
+					</th:block>
+			
+		</div>
+	</div>
+
+	<!--//login-->
+	<!--brand-->
+	<div class="container">
+		<div class="brand">
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic1.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic2.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic3.png" class="img-responsive" alt="">
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!--//brand-->
+	<!--//content-->
+	<!--//footer-->
+	<th:block th:include="/footer"></th:block>
+	<!--//footer-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+	<script src="js/simpleCart.min.js">
+		
+	</script>
+	<!-- slide -->
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

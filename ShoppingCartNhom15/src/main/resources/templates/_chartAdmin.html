@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+<!-- Bootstrap CSS -->
+  <link th:href="@{/css1/bootstrap.min.css}" rel="stylesheet">
+  <!-- bootstrap theme -->
+  <link th:href="@{/css1/bootstrap-theme.css}" rel="stylesheet">
+  <!--external css-->
+  <!-- font icon -->
+  <link th:href="@{/css1/elegant-icons-style.css}" rel="stylesheet" />
+  <link th:href="@{/css1/font-awesome.min.css}" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link th:href="@{/css1/style.css}" rel="stylesheet">
+  <link th:href="@{/css1/style-responsive.css}" rel="stylesheet" />
+
+</head>
+
+<body>
+	
+	<!-- Biểu đồ doanh thu -->
+	<!--main content start-->
+	
+	 <div class="row">
+			
+			<div class="row">
+				<!-- chart morris start -->
+				<div class="col-lg-12">
+					
+						<header class="panel-heading">
+							<h3>
+								General Chart
+								</Char>
+						</header>
+						
+						<div class="panel-body">
+							<div class="tab-pane" id="chartjs">
+								<div class="row">
+									<!-- Line -->
+									<div class="col-lg-6">
+										<section class="panel">
+											<header class="panel-heading"> Line </header>
+											<div class="panel-body text-center">
+												<canvas id="line" height="300" width="450"></canvas>
+											</div>
+										</section>
+									</div>
+								
+								
+									<!-- Radar -->
+									<div class="col-lg-6">
+										<section class="panel">
+											<header class="panel-heading"> Radar </header>
+											<div class="panel-body text-center">
+												<canvas id="radar" height="300" width="400"></canvas>
+											</div>
+										</section>
+									</div>
+								
+								</div>
+							
+							</div>
+						</div>
+				</div>
+	
+		</div>
+	
+
+</div>
+<!-- javascripts -->
+    <script th:src="@{/js2/jquery.js}"></script>
+    <script th:src="@{/js2/jquery-1.8.3.min.js}"></script>
+    <script th:src="@{/js2/bootstrap.min.js}"></script>
+    <!-- nice scroll -->
+    <script th:src="@{/js2/jquery.scrollTo.min.js}"></script>
+    <script th:src="@{/js2/jquery.nicescroll.js}" type="text/javascript"></script>
+    <!-- chartjs -->
+    <script th:src="@{/assets/chart-master/Chart.js}"></script>
+    <!-- custom chart script for this page only-->
+    <script th:src="@{/js2/chartjs-custom.js}"></script>
+    <!--custome script for all page-->
+    <script th:src="@{/js2/scripts.js}"></script>
+</body>
+
+</html>

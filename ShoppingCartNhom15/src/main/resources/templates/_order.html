@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+
+</head>
+
+<body>
+	<th:block th:include="/_headAdmin"></th:block>
+
+	<section id="container" class="">
+
+		<th:block th:include="/_headerAdmin"></th:block>
+		<!--header end-->
+
+		<!--sidebar start-->
+		<th:block th:include="/_sidebarAdmin"></th:block>
+		<!--sidebar end-->
+		 <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+			<div class="page-header">
+        <h3>Thông tin đơn hàng</h3>
+      </div>
+      <div class="customer-info-container">
+         <h3>Thông tin khách hàng:</h3>
+         <ul>
+            <li>Tên: <span th:utext="${orderInfo.customerName}"></span></li>
+            <li>Email: <span th:utext="${orderInfo.customerEmail}"></span></li>
+            <li>Số điện thoại: <span th:utext="${orderInfo.customerPhone}"></span></li>
+            <li>Địa chỉ: <span th:utext="${orderInfo.customerAddress}"></span></li>
+         </ul>
+         <h3>Danh sách mặt hàng:</h3>
+         <ul>
+            <li>Tổng tiền:
+               <span class="total" th:utext="${#numbers.formatDecimal(orderInfo.amount,3,2,'COMMA')}">         
+               </span>
+            </li>
+         </ul>
+      </div>
+      <br/>
+      <table border="1" style="width:100%">
+         <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+         </tr>
+         <tr th:each="orderDetailInfo : ${orderInfo.details}">
+            <td th:utext="${orderDetailInfo.productCode}"></td>
+            <td th:utext="${orderDetailInfo.productName}"></td>
+            <td th:utext="${orderDetailInfo.quanity}"></td>
+            <td th:utext="${#numbers.formatDecimal(orderDetailInfo.price,3,2,'COMMA')}"></td>
+            <td th:utext="${#numbers.formatDecimal(orderDetailInfo.amount,3,2,'COMMA')}"></td>
+         </tr>
+      </table>
+		
+			
+		</section>
+		</section>
+	</section>
+	
+</body>
+
+</html>

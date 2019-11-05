@@ -1,0 +1,165 @@
+<!--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+</head>
+<body>
+	<th:block th:include="/head"></th:block>
+	<th:block th:include="/header"></th:block>
+	<!--banner-->
+	<div class="banner-top">
+		<div class="container">
+			<h1>Checkout</h1>
+			<em></em>
+			<h2>
+				<a href="index.html">Home</a><label>/</label>Checkout
+			</h2>
+		</div>
+	</div>
+	<!--login-->
+	<script>
+		$(document).ready(function(c) {
+			$('.close1').on('click', function(c) {
+				$('.cart-header').fadeOut('slow', function(c) {
+					$('.cart-header').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close2').on('click', function(c) {
+				$('.cart-header1').fadeOut('slow', function(c) {
+					$('.cart-header1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close3').on('click', function(c) {
+				$('.cart-header2').fadeOut('slow', function(c) {
+					$('.cart-header2').remove();
+				});
+			});
+		});
+	</script>
+	
+	<section id="container" class="">
+	<section id="main-content">
+      <section class="wrapper">
+			<header class="panel-heading"> Thông tin đơn hàng </header>
+      <div class="customer-info-container">
+         <h3>Thông tin khách hàng:</h3>
+         <ul>
+            <li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li>
+            <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
+            <li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
+            <li>Address: <span th:utext="${myCart.customerInfo.address}"></span></li>
+         </ul>
+         <h3>Danh sách mặt hàng:</h3>
+         <ul>
+            <li>Tổng tiền:
+               <span class="total"
+                  th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}">  
+               </span>
+               
+            </li>
+         </ul>
+      </div>
+      <br/>
+      
+      <div class="bs-example" data-example-id="simple-table">
+    <table class="table">
+    	<thead>
+         <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+         </tr>
+         </thead>
+         <tbody>
+	         <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
+		         <tr>
+		            <td th:utext="${cartLineInfo.productInfo.code}"></td>
+		            <td th:utext="${cartLineInfo.productInfo.name}"></td>
+		            <td th:utext="${cartLineInfo.quantity}"></td>
+		            <td th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}"></td>
+		            <td th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}"></td>
+		         </tr>
+	         
+         </tbody>
+      </table>
+      </div>
+		<div class="check-out">
+		<div class="container">
+<div class="panel-body">
+               <div class="page-title">Confirmation</div>
+     
+      <form method="POST" th:action="@{/shoppingCartConfirmation}">
+         <!-- Edit Cart -->
+         <a class="navi-item" th:href="@{/shoppingCart}">
+         Edit Cart
+         </a>
+         <!-- Edit Customer Info -->
+         <a class="navi-item" th:href="@{/shoppingCartCustomer}">
+         Edit Customer Info
+         </a>
+         <!-- Send/Save -->
+         <input type="submit" value="Send" class="button-send-sc" />
+      </form>
+                </div>
+
+              </div>
+			
+		</div>                 
+			
+		</section>
+		</section>
+	
+	</div>
+</section>
+
+	<!--//login-->
+	<!--brand-->
+	<div class="container">
+		<div class="brand">
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic1.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic2.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic3.png" class="img-responsive" alt="">
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!--//brand-->
+	<!--//content-->
+	<!--//footer-->
+	<th:block th:include="/footer"></th:block>
+	<!--//footer-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+	<script src="js/simpleCart.min.js">
+		
+	</script>
+	<!-- slide -->
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+
+</head>
+<body>
+	<th:block th:include="/head"></th:block>
+	<th:block th:include="/header"></th:block>
+	<!--banner-->
+	<div class="banner-top">
+		<div class="container">
+			<h1>Checkout</h1>
+			<em></em>
+			<h2>
+				<a href="index.html">Home</a><label>/</label>Checkout
+			</h2>
+		</div>
+	</div>
+	<!--login-->
+	<script>
+		$(document).ready(function(c) {
+			$('.close1').on('click', function(c) {
+				$('.cart-header').fadeOut('slow', function(c) {
+					$('.cart-header').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close2').on('click', function(c) {
+				$('.cart-header1').fadeOut('slow', function(c) {
+					$('.cart-header1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(c) {
+			$('.close3').on('click', function(c) {
+				$('.cart-header2').fadeOut('slow', function(c) {
+					$('.cart-header2').remove();
+				});
+			});
+		});
+	</script>
+	<div class="page-title">Finalize</div>
+      <div class="container">
+         <h3>Thank you for Order</h3>
+         Your order number is: <span th:utext="${lastOrderedCart.orderNum}"></span>
+      </div>
+
+	<!--//login-->
+	<!--brand-->
+	<div class="container">
+		<div class="brand">
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic1.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic2.png" class="img-responsive" alt="">
+			</div>
+			<div class="col-md-3 brand-grid">
+				<img src="images/ic3.png" class="img-responsive" alt="">
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!--//brand-->
+	<!--//content-->
+	<!--//footer-->
+	<th:block th:include="/footer"></th:block>
+	<!--//footer-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+	<script src="js/simpleCart.min.js">
+		
+	</script>
+	<!-- slide -->
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

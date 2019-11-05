@@ -1,0 +1,102 @@
+<!--A Design by W3layouts 
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+ <th:block th:include="/head"></th:block>
+ <th:block th:include="/header"></th:block>
+<!--banner-->
+<div class="banner-top">
+	<div class="container">
+		<h1>Login</h1>
+		<em></em>
+		<h2><a href="index.html">Home</a><label>/</label>Login</h2>
+	</div>
+</div>
+<!--login-->
+<div class="container">
+		<div class="login">
+		<th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+             <div th:if= "${#request.getParameter('error') == 'true'}"
+                style="color: red; margin: 10px 0px;">
+                Login Failed!!!<br /> Reason :
+                <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+             </div>
+         </th:block>
+			<form method="POST"
+            th:action="@{/j_spring_security_check}">
+				<div class="col-md-6 login-do">
+					<div class="login-mail">
+						<input type="text" placeholder="Username" name="userName"/>
+						<i  class="glyphicon glyphicon-envelope"></i>
+					</div>
+					<div class="login-mail">
+						<input type="password" placeholder="Password" name="password"/>
+						<i class="glyphicon glyphicon-lock"></i>
+					</div>
+					   <a class="news-letter " href="#">
+							 <label class="checkbox1"><input type="checkbox" name="checkbox" /><i> </i>Forget Password</label>
+						   </a>
+					<label class="hvr-skew-backward">
+						<input type="submit" value="Login"/>
+						
+					</label>
+				</div>
+			</form>
+			<div class="col-md-6 login-right">
+				 <h3>Completely Free Account</h3>
+				 
+				 <p>Pellentesque neque leo, dictum sit amet accumsan non, dignissim ac mauris. Mauris rhoncus, lectus tincidunt tempus aliquam, odio 
+				 libero tincidunt metus, sed euismod elit enim ut mi. Nulla porttitor et dolor sed condimentum. Praesent porttitor lorem dui, in pulvinar enim rhoncus vitae. Curabitur tincidunt, turpis ac lobortis hendrerit, ex elit vestibulum est, at faucibus erat ligula non neque.</p>
+				<a href="register.html" class=" hvr-skew-backward">Register</a>
+
+			</div>
+			
+			
+			
+			<span class="error-message" th:utext="${error}"></span>
+		</div>
+
+</div>
+
+<!-- End login -->
+			<!--brand-->
+		<div class="container">
+			<div class="brand">
+				<div class="col-md-3 brand-grid">
+					<img src="images/ic.png" class="img-responsive" alt="">
+				</div>
+				<div class="col-md-3 brand-grid">
+					<img src="images/ic1.png" class="img-responsive" alt="">
+				</div>
+				<div class="col-md-3 brand-grid">
+					<img src="images/ic2.png" class="img-responsive" alt="">
+				</div>
+				<div class="col-md-3 brand-grid">
+					<img src="images/ic3.png" class="img-responsive" alt="">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			</div>
+			<!--//brand-->
+		
+	<!--//content-->
+		<!--//footer-->
+		 <th:block th:include="/footer"></th:block>
+		<!--//footer-->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+	<script th:src="@{/js/simpleCart.min.js}"> </script>
+<!-- slide -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+ 
+</body>
+</html>
