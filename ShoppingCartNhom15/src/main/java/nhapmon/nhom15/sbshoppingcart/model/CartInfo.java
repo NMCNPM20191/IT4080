@@ -35,6 +35,8 @@ public class CartInfo {
         return this.cartLines;
     }
  
+    
+    
     private CartLineInfo findLineByCode(String code) {
         for (CartLineInfo line : this.cartLines) {
             if (line.getProductInfo().getCode().equals(code)) {

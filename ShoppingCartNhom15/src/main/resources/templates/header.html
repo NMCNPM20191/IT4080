@@ -25,14 +25,13 @@
 							<a th:href="@{/admin/login}">Login</a>
 						</th:block>
 						<th:block sec:authorize="isAuthenticated()">
-         				Hello
-           				<a th:href="@{/admin/accountInfo}">
+<!--          				Hello
+ -->           				<a th:href="@{/admin/accountInfo}">
            				<th:span sec:authentication="name"></th:span></a>
          				&nbsp;|&nbsp;
-         				<a th:href="@{/admin/logout}">Logout</a>
 						</th:block>
-						<li><a href="register.html">Register</a></li>
-						<li><a th:href="@{/shoppingCart}">Checkout</a></li>
+<!-- 						<li><a th:href="@{/register}">Register</a></li>
+ -->						<li><a th:href="@{/shoppingCart}">Checkout</a></li>
 					</ul>
 				</div>
 				<!-- Mạng xã hội -->
@@ -173,13 +172,13 @@
 						<a th:href="@{/shoppingCart}">
 							<h3>
 								<div class="total">
-									<span class="simpleCart_total"></span>
-								</div>
+<!-- 									<span class="simpleCart_total"></span>
+ -->							</div> 
 								<img src="images/cart.png" alt="" />
 							</h3>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+							<a th:href="@{/emptyCart}" class="simpleCart_empty">Empty Cart</a>
 						</p>
 
 					</div>

@@ -53,18 +53,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 	<div class="check-out">
 		<div class="container">
-<th:block
-						th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.empty}">
-						<h2>There is no items in Cart</h2>
-						<a th:href="@{/productList}">Show Product List</a>
-					</th:block>
-					<th:block
-						th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
-						<form method="POST" th:object="${cartForm}"
-							th:action="@{/shoppingCart}">
-			<div class="bs-example4" data-example-id="simple-responsive-table">
-				<div class="table-responsive">
-					
+			<th:block
+				th:if="${cartForm == null || cartForm.cartLines == null || cartForm.cartLines.empty}">
+				<div align="center">
+				<h2>There is no items in Cart</h2>
+				<a th:href="@{/productList}">Show Product List</a>
+				</div>
+			</th:block>
+			<th:block
+				th:if="${cartForm != null && cartForm.cartLines != null && !cartForm.cartLines.empty}">
+				<form method="POST" th:object="${cartForm}"
+					th:action="@{/shoppingCart}">
+					<div class="bs-example4" data-example-id="simple-responsive-table">
+						<div class="table-responsive">
+
 							<table class="table-heading simpleCart_shelfItem">
 								<tr>
 									<th class="table-grid">Item</th>
@@ -75,7 +77,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</tr>
 
 
-								<div class="product-preview-container" th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
+								<div class="product-preview-container"
+									th:each="cartLineInfo, varStatus : ${cartForm.cartLines}">
 									<tr>
 										<td class="ring-in"><a href="single.html" class="at-in">
 												<img
@@ -84,17 +87,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										</a>
 											<div class="sed">
 												<h5>
-													<a th:href="@{|/single?productId=${cartLineInfo.productInfo.code}|}">
+													<a
+														th:href="@{|/single?productId=${cartLineInfo.productInfo.code}|}">
 														<p th:utext="${cartLineInfo.productInfo.name}"></p>
 													</a>
 												</h5>
-												<p>(At vero eos et accusamus et iusto odio dignissimos
-													ducimus )</p>
+
 											</div>
-									 		<div class="clearfix"></div></td>
-										
+											<div class="clearfix"></div></td>
+
 										<td>
-		
+
 											<div class="quantity">
 												<span class="decrease"><svg viewBox="0 0 15 15">
 																	<use xlink:href="#minus-lower"></use></svg></span> <input
@@ -105,7 +108,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 													class="increase"><svg viewBox="0 0 15 15">
 																	<use xlink:href="#plus-increase"></use></svg></span>
 											</div>
-		
+
 										</td>
 										<td>
 											<p class="price"
@@ -116,31 +119,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<td class="item_price"><p class="subtotal"
 												th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}">
 											</p></td>
-		
-										<td class="add-check"><a class="item_add hvr-skew-backward"
+
+										<td class="add-check"><a
+											class="item_add hvr-skew-backward"
 											th:href="@{|/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}">Delete</a></td>
-									</tr>	
+									</tr>
 								</div>
-								
-								
+
+
 							</table>
-							
-								
-					
-				</div>
-			</div>
-			<!--  
+
+
+
+						</div>
+					</div>
+					<!--  
 			<input class="produced" type="submit"
 									value="Update Quantity" />
 							<div class="produced">
 			-->
-				<a th:href="@{/productList}" class="hvr-skew-backward">Tiếp tục mua hàng</a>
-				<a th:href="@{/shoppingCartCustomer}" class="hvr-skew-backward">Đặt Hàng</a>
-			</div>
-				</form>
-					</th:block>
-			
+					<a th:href="@{/productList}" class="hvr-skew-backward">Tiếp tục
+						mua hàng</a> <a th:href="@{/shoppingCartCustomer}"
+						class="hvr-skew-backward">Đặt Hàng</a>
 		</div>
+		</form>
+		</th:block>
+
+	</div>
 	</div>
 
 	<!--//login-->

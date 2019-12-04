@@ -53,55 +53,55 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 	<div class="check-out">
 		<div class="container">
-<div class="panel-body">
-                <div class="form">
-                  <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
-          
-         <table>
-            <tr>
-               <td>Tên *</td>
-               <td><input th:field="*{name}" /></td>
-               <td>
-                  <span class="error-message"
-                     th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
-               </td>
-            </tr>
-            <tr>
-               <td>Email *</td>
-               <td><input th:field="*{email}" type="email" /></td>
-               <td>
-                  <span class="error-message"
-                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
-               </td>
-            </tr>
-            <tr>
-               <td>Số điện thoại *</td>
-               <td><input th:field="*{phone}" /></td>
-               <td>
-                  <span class="error-message"
-                     th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
-               </td>
-            </tr>
-            <tr>
-               <td>Địa chỉ *</td>
-               <td><input th:field="*{address}" /></td>
-               <td>
-                  <span class="error-message"
-                     th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
-               </td>
-            </tr>
-            <tr>
-               <td>&nbsp;</td>
-               <td><input type="submit" value="Submit" /> <input type="reset"
-                  value="Reset" /></td>
-            </tr>
-         </table>
-          
-      </form>
-                </div>
+			<div class="panel-body">
+				<div class="form">
+					<form method="POST" th:object="${customerForm}"
+						th:action="@{/shoppingCartCustomer}">
 
-              </div>
-			
+						<table>
+							<tr>
+								<td style="color: red;">Tên *</td>
+								<td><input th:field="*{name}" /></td>
+								<td><span class="error-message"
+									th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: red;">Email *</td>
+								<td><input th:field="*{email}" type="email" /></td>
+								<td><span class="error-message"
+									th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: red;">Số điện thoại *</td>
+								<td><input th:field="*{phone}" /></td>
+								<td><span class="error-message"
+									th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="color: red;">Địa chỉ *</td>
+								<td><input th:field="*{address}" /></td>
+								<td><span class="error-message"
+									th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td><input type="submit" value="Submit"
+									style="border: none; background: #4CAF50; color: white; border-radius: 12px;" />
+									<input type="reset" value="Reset"
+									style="border: none; background: #4CAF50; color: white; border-radius: 12px;" />
+								</td>
+							</tr>
+						</table>
+
+					</form>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 

@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div class=" mid-pop">
 								<div class="pro-img">
 									<img th:src="@{|/productImage?code=${prodInfo.code}|}"
-										class="img-responsive" alt="">
+										class="img-responsive" alt="" style="height: 300px;width: 500px">
 									<div class="zoom-icon ">
 										<a class="picture"
 											th:href="@{|/productImage?code=${prodInfo.code}|}"
@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="mid-1">
 									<div class="women">
 										<div class="women-top">
-											<span>Women</span>
+											<!-- <span>Women</span> -->
 											<h6>
 												<a th:href="@{|/single?productId=${prodInfo.code}|}"><p th:utext="${prodInfo.name}"></p></a>
 											</h6>
@@ -73,13 +73,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<div class="clearfix"></div>
 									</div>
 									<!-- For Manager edit Product -->
-									<th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
+									<!-- <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
 
 										<a style="color: red;"
 											th:href="@{|/admin/product?code=${prodInfo.code}|}">Edit
 											Product</a>
 
-									</th:block>
+									</th:block> -->
 								</div>
 							</div>
 						</div>

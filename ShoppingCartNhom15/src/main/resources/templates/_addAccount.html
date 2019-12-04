@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+
+</head>
+
+<body>
+	<th:block th:include="/_headAdmin"></th:block>
+
+	<section id="container" class="">
+
+		<th:block th:include="/_headerAdmin"></th:block>
+		<!--header end-->
+
+		<!--sidebar start-->
+		<th:block th:include="/_sidebarAdmin"></th:block>
+		<!--sidebar end-->
+		<!--main content start-->
+		<section id="main-content">
+
+			<section class="wrapper">
+				<section class="panel">
+					<header class="panel-heading"> Tài Khoản </header>
+					<div class="panel-body" style="font-family: Times New Roman">
+						<div th:if="${errorMessage!= null}" class="error-message"
+							th:utext="${errorMessage}"></div>
+
+						<form th:object="${accountForm}" th:action="@{/admin/account}"
+							method="POST" enctype="multipart/form-data">
+							<table style="text-align: left;">
+								<tr>
+									<div class="form-group" >
+										<label for="exampleInputPassword1">UserName :</label> 
+										
+										<div>
+										<input 
+											th:field="*{newAccount}" type="hidden" /> <input
+											th:if="${accountForm.newAccount}" type="text"
+											th:field="*{userName}" class="form-control"/>
+										</div>
+										</div>
+								</tr>
+								<tr>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Password</label>
+										</td> <input th:field="*{encrytedPassword}" class="form-control" />
+										</td> 
+									</div>
+								</tr>
+								<tr>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Role</label> 
+										<select class="form-control input-sm m-bot15" th:field="*{userRole}">
+											<option value = "ROLE_MANAGER">MANAGER</option>
+											<option value="ROLE_EMPLOYEE">EMPLOYEE</option>										
+										</select>
+									</div>
+								</tr>
+								<tr>
+									<div class="form-group">
+										<label for="exampleInputPassword1">Active</label> 
+										<select class="form-control input-sm m-bot15" th:field="*{active}">
+											<option value = "true">True</option>
+											<option value="false">False</option>										
+										</select>
+									</div>
+								</tr>
+								
+								<button type="submit" class="btn btn-primary">Submit</button>
+								
+							</table>
+
+						</form>
+					</div>
+				</section>
+			</section>
+		</section>
+	</section>
+
+
+
+
+
+</body>
+<script type="text/javascript" th:src="@{/assets/ckeditor/ckeditor.js}"></script>
+</html>

@@ -8,7 +8,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-
+<style>
+li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+</style>
 </head>
 <body>
 	<th:block th:include="/head"></th:block>
@@ -19,7 +24,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h1>Checkout</h1>
 			<em></em>
 			<h2>
-				<a href="index.html">Home</a><label>/</label>Checkout
+				<a href="">Home</a><label>/</label>Checkout
 			</h2>
 		</div>
 	</div>
@@ -51,83 +56,85 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
-	
-	<section id="container" class="">
-	<section id="main-content">
-      <section class="wrapper">
-			<header class="panel-heading"> Thông tin đơn hàng </header>
-      <div class="customer-info-container">
-         <h3>Thông tin khách hàng:</h3>
-         <ul>
-            <li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li>
-            <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
-            <li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
-            <li>Address: <span th:utext="${myCart.customerInfo.address}"></span></li>
-         </ul>
-         <h3>Danh sách mặt hàng:</h3>
-         <ul>
-            <li>Tổng tiền:
-               <span class="total"
-                  th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}">  
-               </span>
-               
-            </li>
-         </ul>
-      </div>
-      <br/>
-      
-      <div class="bs-example" data-example-id="simple-table">
-    <table class="table">
-    	<thead>
-         <tr>
-            <th>Mã sản phẩm</th>
-            <th>Tên sản phẩm</th>
-            <th>Số lượng</th>
-            <th>Giá</th>
-            <th>Thành tiền</th>
-         </tr>
-         </thead>
-         <tbody>
-	         <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
-		         <tr>
-		            <td th:utext="${cartLineInfo.productInfo.code}"></td>
-		            <td th:utext="${cartLineInfo.productInfo.name}"></td>
-		            <td th:utext="${cartLineInfo.quantity}"></td>
-		            <td th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}"></td>
-		            <td th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}"></td>
-		         </tr>
-	         
-         </tbody>
-      </table>
-      </div>
-		<div class="check-out">
-		<div class="container">
-<div class="panel-body">
-               <div class="page-title">Confirmation</div>
-     
-      <form method="POST" th:action="@{/shoppingCartConfirmation}">
-         <!-- Edit Cart -->
-         <a class="navi-item" th:href="@{/shoppingCart}">
-         Edit Cart
-         </a>
-         <!-- Edit Customer Info -->
-         <a class="navi-item" th:href="@{/shoppingCartCustomer}">
-         Edit Customer Info
-         </a>
-         <!-- Send/Save -->
-         <input type="submit" value="Send" class="button-send-sc" />
-      </form>
-                </div>
 
-              </div>
-			
-		</div>                 
-			
-		</section>
-		</section>
-	
-	</div>
-</section>
+	<section id="container" class="" style="font-family: Times New Roman">
+		<div class="container">
+			<section id="main-content">
+				<section class="wrapper">
+					<header class="panel-heading"
+						style="align-content: center; text-align: center; font-size: -webkit-xxx-large; color: red;">
+						Thông tin đơn hàng </header>
+					<div class="customer-info-container">
+						<h3>Thông tin khách hàng:</h3>
+						<ul style="margin-left: 52px; list-style-type: none">
+							<li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li>
+							<li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
+							<li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
+							<li>Address: <span th:utext="${myCart.customerInfo.address}"></span></li>
+						</ul>
+						<h3>Danh sách mặt hàng:</h3>
+						<ul style="margin-left: 52px; list-style-type: none">
+							<li>Tổng tiền: <span class="total"
+								th:utext="${#numbers.formatDecimal(myCart.amountTotal,3,2,'COMMA')}">
+							</span>
+
+							</li>
+						</ul>
+					</div>
+					<br />
+
+					<div class="bs-example" data-example-id="simple-table">
+						<table class="table">
+							<thead>
+								<tr>
+									<th style="font-family: Times New Roman;">Mã sản phẩm</th>
+									<th style="font-family: Times New Roman;">Tên sản phẩm</th>
+									<th style="font-family: Times New Roman;">Số lượng</th>
+									<th style="font-family: Times New Roman;">Giá</th>
+									<th style="font-family: Times New Roman;">Thành tiền</th>
+								</tr>
+							</thead>
+							<tbody>
+								<div class="product-preview-container"
+									th:each="cartLineInfo : ${myCart.cartLines}">
+									<tr>
+										<td th:utext="${cartLineInfo.productInfo.code}"></td>
+										<td th:utext="${cartLineInfo.productInfo.name}"></td>
+										<td th:utext="${cartLineInfo.quantity}"></td>
+										<td
+											th:utext="${#numbers.formatDecimal(cartLineInfo.productInfo.price,3,2,'COMMA')}"></td>
+										<td
+											th:utext="${#numbers.formatDecimal(cartLineInfo.amount,3,2,'COMMA')}"></td>
+									</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="check-out">
+						<div class="container">
+							<div class="panel-body">
+								<div class="page-title">Confirmation</div>
+
+								<form method="POST" th:action="@{/shoppingCartConfirmation}">
+									<!-- Edit Cart -->
+									<a class="navi-item" th:href="@{/shoppingCart}"> Edit Cart
+									</a>
+									<!-- Edit Customer Info -->
+									<a class="navi-item" th:href="@{/shoppingCartCustomer}">
+										Edit Customer Info </a>
+									<!-- Send/Save -->
+									<input type="submit" value="Send" class="button-send-sc" />
+								</form>
+							</div>
+
+						</div>
+
+					</div>
+
+				</section>
+			</section>
+
+		</div>
+	</section>
 
 	<!--//login-->
 	<!--brand-->

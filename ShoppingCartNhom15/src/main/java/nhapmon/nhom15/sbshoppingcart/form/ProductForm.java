@@ -11,7 +11,12 @@ public class ProductForm {
 	private String description;
 	private String category;
  
-    public String getCategory() {
+    private boolean newProduct = false;
+
+	// Upload file.
+	private MultipartFile fileData;
+
+	public String getCategory() {
 		return category;
 	}
 
@@ -19,12 +24,7 @@ public class ProductForm {
 		this.category = category;
 	}
 
-	private boolean newProduct = false;
- 
-    // Upload file.
-    private MultipartFile fileData;
- 
-    public ProductForm() {
+	public ProductForm() {
         this.newProduct= true;
     }
  

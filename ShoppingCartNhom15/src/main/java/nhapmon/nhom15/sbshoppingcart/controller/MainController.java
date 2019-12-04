@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import nhapmon.nhom15.sbshoppingcart.dao.CartDAO;
 import nhapmon.nhom15.sbshoppingcart.dao.OrderDAO;
 import nhapmon.nhom15.sbshoppingcart.dao.ProductDAO;
 import nhapmon.nhom15.sbshoppingcart.entity.Product;
@@ -39,6 +40,9 @@ public class MainController {
  
     @Autowired
     private ProductDAO productDAO;
+    
+    @Autowired
+    private CartDAO cartDAO;
  
     @Autowired
     private CustomerFormValidator customerFormValidator;
@@ -65,6 +69,10 @@ public class MainController {
  
     }
     
+    @RequestMapping("/register")
+    public String register() {
+    	return "register";
+    }
     
     @RequestMapping("/403")
     public String accessDenied() {
@@ -159,6 +167,15 @@ public class MainController {
         return "redirect:/shoppingCart";
     }
  
+    @RequestMapping({"/emptyCart"})
+    public String shoppingCartEmpty(HttpServletRequest request, Model model) {
+    		CartInfo cartInfo = Utils.getCartInSession(request);
+    		cartDAO.emptyCart(cartInfo);
+    		
+    		return "redirect:/shoppingCart";
+    		
+    }
+    
     // POST: Cập nhập số lượng cho các sản phẩm đã mua.
     @RequestMapping(value = { "/shoppingCart" }, method = RequestMethod.POST)
     public String shoppingCartUpdateQty(HttpServletRequest request, //
